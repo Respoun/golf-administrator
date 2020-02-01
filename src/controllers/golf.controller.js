@@ -31,69 +31,69 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-    console.log(req.params);
-    Golf.findById(req.params.id)
-        .then(golf => {
-            if (!golf) {
-                return res.status(404).send({
-                    message: "Golf not found with id" + req.params.id
-                });
-            }
-            res.send(golf);
-        })
-        .catch(err => {
-            return res.status(500).send({
-                message: err.message
-            })
-        })
+  console.log(req.params);
+  Golf.findById(req.params.id)
+  .then(golf => {
+    if (!golf) {
+      return res.status(404).send({
+        message: "Golf not found with id" + req.params.id
+      });
+    }
+    res.send(golf);
+  })
+  .catch(err => {
+    return res.status(500).send({
+      message: err.message
+    })
+  })
 }
 
 exports.updateOne = (req, res) => {
-    Golf.findByIdAndUpdate(
-        req.params.id,
-        req.body
-    ).then(golf => {
-        if (!golf) {
-            return res.status(404).send({
-                message: "Golf not found"
-            })
-        }
+  Golf.findByIdAndUpdate(
+    req.params.id,
+    req.body
+  ).then(golf => {
+    if (!golf) {
+      return res.status(404).send({
+        message: "Golf not found"
+      })
+    }
 
-        Golf.findById(req.params.id)
-            .then(newGolf => {
-                res.send({
-                    new_user: newGolf,
-                    old_user: golf
-                });
-            })
-    }).catch(err => {
-        return res.status(500).send({
-            message: err.message
-        })
+    Golf.findById(req.params.id)
+    .then(newGolf => {
+      res.send({
+        new_user: newGolf,
+        old_user: golf
+      });
     })
+  }).catch(err => {
+    return res.status(500).send({
+      message: err.message
+    })
+  })
 }
 
 exports.deleteOne = (req, res) => {
-    Golf.findByIdAndRemove(req.params.id)
-        .then(golf => {
-            if (!golf) {
-                return res.status(404).send({
-                    message: "Golf not found"
-                })
-            }
-            res.send({
-                message: `Golf with id ${req.params.id} deleted successfully`
-            })
-        })
+  Golf.findByIdAndRemove(req.params.id)
+  .then(golf => {
+    if (!golf) {
+      return res.status(404).send({
+        message: "Golf not found"
+      })
+    }
+    res.send({
+      message: `Golf with id ${req.params.id} deleted successfully`
+    })
+  })
 }
 
 exports.removeAll = (req, res) => {
-    Golf.deleteMany((err) => {
-        if (err) {
-            res.send(err)
-        }
-        res.send('All Golfs removed');
-    });
+  Golf.deleteMany((err) => {
+    if (err) {
+      res.send(err)
+    }
+    res.send('All Golfs removed');
+  });
 }
 
 // exports.findOneByLongitude = (req, res) => {
