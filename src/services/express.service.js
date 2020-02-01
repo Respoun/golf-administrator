@@ -8,9 +8,9 @@ const app = express();
 app.use(bodyParser.json());
 
 //TEST racine route
-// app.get('/', function (req, res) {
-//   res.send('Hello World!')
-// })
+app.get('/', function (req, res) {
+  res.send('Je suis une Licorne')
+})
 
 // routes
 app.use('/api/v1', apiRouter);
