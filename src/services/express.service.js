@@ -1,18 +1,19 @@
 const express = require('express');
 const config = require('../configs/server.config');
 const bodyParser = require('body-parser');
-// const apiRouter = require('../routes');
+const apiRouter = require('../routes');
 
 const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+//TEST racine route
+// app.get('/', function (req, res) {
+//   res.send('Hello World!')
+// })
 
-//routes
-// app.use('/api/v1', apiRouter);
+// routes
+app.use('/api/v1', apiRouter);
 
 exports.start = () => {
     let port = config.port;
