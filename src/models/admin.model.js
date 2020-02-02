@@ -29,7 +29,7 @@ const adminSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 1,
+    minlength: 8,
     maxlength: 250,
   },
   admin: {

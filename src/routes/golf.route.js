@@ -6,8 +6,6 @@ const golf = require('../controllers/golf.controller');
 router.post('/golf', golf.create);
 router.get('/golfs', golf.findAll);
 router.get('/golfs/:id', golf.findOne);
-// router.get('/golfs/location/:longitude', golf.findOneByLongitude)
-//router.post('/golfs/:id', golf.updateOne);
 router.put('/golfs/:id', golf.updateOne);
 router.delete('/golfs/:id', golf.deleteOne);
 

@@ -7,10 +7,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-//TEST racine route
-// app.get('/', function (req, res) {
-//   res.sendFile(__dirname + '/view/index.html')
-// })
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/view/index.html')
+})
 
 // routes
 app.use('/api/v1', apiRouter);

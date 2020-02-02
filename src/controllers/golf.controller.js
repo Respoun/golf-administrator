@@ -95,21 +95,3 @@ exports.removeAll = (req, res) => {
     res.send('All Golfs removed');
   });
 }
-
-// exports.findOneByLongitude = (req, res) => {
-//     console.log(req.params);
-//     Golf.findOne(req.params.longitude)
-//         .then(golf => {
-//             if (!golf) {
-//                 return res.status(404).send({
-//                     message: "Golf not found with longitude:" + req.params.longitude
-//                 });
-//             }
-//             res.send(golf);
-//         })
-//         .catch(err => {
-//             return res.status(500).send({
-//                 message: err.message
-//             })
-//         })
-// }
