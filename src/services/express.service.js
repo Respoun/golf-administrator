@@ -11,6 +11,15 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/view/index.html')
 })
 
+app.get('/add', function (req, res) {
+  res.sendFile(__dirname + '/view/add.html')
+})
+
+app.get('/delete', function (req, res) {
+  res.sendFile(__dirname + '/view/delete.html')
+})
+
+
 // routes
 app.use('/api/v1', apiRouter);
 

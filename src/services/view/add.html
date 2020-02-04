@@ -1,0 +1,46 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="assets/front.css">
+  <title>Golf-administrator</title>
+</head>
+<body>
+  <h1 style="margin-left: 30%;">Welcome to the Golf-Administrator</h1>
+  <iframe style="margin-left: 30%;" src="https://gifer.com/embed/VOT" width=480 height=326.465 frameBorder="0" allowFullScreen></iframe>
+
+  <div class="add_golf" style="margin-left: 44%">
+    <h2>Golf Action</h2>
+    <form id="add_golf">
+      Titre:<br>
+      <input name='titre'><br>
+      Latitude:<br>
+      <input name='latitude'><br>
+      Longitude:<br>
+      <input name='longitude'><br>
+      Description:<br>
+      <input name='description'><br>
+      manager:<br>
+      <input name='manager'><br>
+      <br>
+    </form>
+      <input type="button" onclick="Send();" value="submit">
+  </div>
+
+</body>
+<script type="text/javascript">
+function Post() {
+  var elements = document.getElementById("add_golf").elements;
+    var obj ={};
+    for(var i = 0 ; i < elements.length ; i++){
+        var item = elements.item(i);
+        obj[item.name] = item.value;
+    }
+  var xmlhttp = new XMLHttpRequest();
+  var Url = "/api/v1/golf";
+  xmlhttp.open("POST", Url);
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlhttp.send(JSON.stringify(obj));
+}
+</script>
+
+</html>

@@ -9,24 +9,23 @@
 
   <div class="delete_golf" style="margin-left: 44%">
     <h2>Golf Action</h2>
-    <input type="button" onclick="Send();" value="View Golf details">
+    <form>
+      ID:<br>
+      <input name=id id="delete_golf"><br>
+    </form>
+      <input type="button" onclick="Send();" value="submit">
   </div>
+
 </body>
 <script type="text/javascript">
 
 function Send() {
+  var value = document.getElementById("delete_golf").value;
   var xmlhttp = new XMLHttpRequest();
-  var Url = "/api/v1/golfs"
+  var Url = "/api/v1/golfs/"+ value;
   console.log(Url);
-  xmlhttp.open("GET", Url, true);
-  xmlhttp.responseType = 'json';
+  xmlhttp.open("DELETE", Url, true);
   xmlhttp.send();
-
-  xmlhttp.onload = () => {
-    const golf = xmlhttp.response;
-    // log details
-    console.log(golf);
-  }
 }
 
 </script>
