@@ -11,6 +11,7 @@
     <h2>Golf Action</h2>
     <input type="button" onclick="Send();" value="View Golf details">
   </div>
+  <p id="golf"></p>
 </body>
 <script type="text/javascript">
 
@@ -25,7 +26,8 @@ function Send() {
   xmlhttp.onload = () => {
     const golf = xmlhttp.response;
     // log details
-    console.log(golf);
+    var json = JSON.stringify(golf)
+    document.getElementById("golf").innerHTML = json;
   }
 }
 
