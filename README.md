@@ -1,5 +1,7 @@
 # Golf-Administrator
 
+Guillaume FITAMANT - Ingésup B3
+
 ## Node js API for Golfs administration
 
 ### Requirements:

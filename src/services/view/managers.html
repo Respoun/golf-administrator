@@ -8,7 +8,7 @@
   <iframe style="margin-left: 30%;" src="https://gifer.com/embed/VOT" width=480 height=326.465 frameBorder="0" allowFullScreen></iframe>
   <div class="delete_golf" style="margin-left: 44%">
     <h2>Golf Action</h2>
-    <input type="button" onclick="Send();" value="View Golf details">
+    <input type="button" onclick="Send();" value="View managers details">
   </div>
   <p id="golf"></p>
 </body>
@@ -16,7 +16,7 @@
 
 function Send() {
   var xmlhttp = new XMLHttpRequest();
-  var Url = "/api/v1/golfs"
+  var Url = "/api/v1/managers"
   console.log(Url);
   xmlhttp.open("GET", Url, true);
   xmlhttp.responseType = 'json';
